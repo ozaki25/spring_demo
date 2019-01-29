@@ -14,6 +14,21 @@ public class Demo {
     private String lastname;
     private String fullname;
 
+    public Demo() {
+
+    }
+
+    public Demo(String firstname, String lastname) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+    }
+
+    public Demo(String firstname, String lastname, String fullname) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.fullname = fullname;
+    }
+
     public Long getId() {
         return id;
     }
@@ -46,6 +61,7 @@ public class Demo {
         this.fullname = fullname;
     }
 
+    @Override
     public String toString() {
         return "id: " + this.getId() + ", lastname: " + this.getLastname() + ", firstname: " + this.getFirstname()
                 + ", fullname: " + this.getFullname();
