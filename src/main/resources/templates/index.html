@@ -7,25 +7,26 @@
   <body>
     <h1>Hello</h1>
     <form th:action="@{/}" th:method="post">
-      <div><label>lastame</label> <input name="lastname" /></div>
       <div><label>firstame</label> <input name="firstname" /></div>
+      <div><label>lastame</label> <input name="lastname" /></div>
       <button>Send</button>
     </form>
+    <table th:if="${list.size()}">
     <table>
       <thead>
         <tr>
-          <th>ID</th>
-          <th>lastname</th>
+          <th>id</th>
           <th>firstname</th>
+          <th>lastname</th>
           <th>fullname</th>
         </tr>
       </thead>
       <tbody>
         <tr th:each="item:${list}" th:object="${item}">
-          <td th:text="*id"></td>
-          <td th:text="*lastname"></td>
-          <td th:text="*firstname"></td>
-          <td th:text="*fullname"></td>
+          <td th:text="*{id}"></td>
+          <td th:text="*{firstname}"></td>
+          <td th:text="*{lastname}"></td>
+          <td th:text="*{fullname}"></td>
         </tr>
       </tbody>
     </table>

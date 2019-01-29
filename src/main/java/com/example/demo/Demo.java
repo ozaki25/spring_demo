@@ -45,4 +45,9 @@ public class Demo {
     public void setFullname(String fullname) {
         this.fullname = fullname;
     }
+
+    public String toString() {
+        return "id: " + this.getId() + ", lastname: " + this.getLastname() + ", firstname: " + this.getFirstname()
+                + ", fullname: " + this.getFullname();
+    }
 }

@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,13 +10,15 @@ public class DemoService {
     @Autowired
     DemoRepository demoRepository;
 
+    public List<Demo> findAll() {
+        return demoRepository.findAll();
+    }
+
     public Demo save(Demo demo) {
-        String lastname = demo.getLastname();
         String firstname = demo.getFirstname();
-        if (!lastname.equals("") && !firstname.equals("")) {
-            String fullname = demo.getLastname() + demo.getFirstname();
-            demo.setFullname(fullname);
-        }
+        String lastname = demo.getLastname();
+        String fullname = !firstname.equals("") && !lastname.equals("") ? firstname + " " + lastname : "";
+        demo.setFullname(fullname);
         return demoRepository.save(demo);
     }
 }

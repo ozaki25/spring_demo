@@ -12,18 +12,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class DemoController {
     @Autowired
-    private DemoRepository demoRepository;
+    private DemoService demoService;
 
     @GetMapping
     public String index(Model model) {
-        System.out.println(demoRepository.findAll().size());
-        model.addAttribute("list", demoRepository.findAll());
+        model.addAttribute("list", demoService.findAll());
         return "index";
     }
 
     @PostMapping
     public String post(@ModelAttribute Demo demo) {
-        demoRepository.save(demo);
+        demoService.save(demo);
         return "redirect:/";
     }
 }
