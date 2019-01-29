@@ -1,2 +1,16 @@
-<title>hello</title>
-<h1>Hello</h1>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <title>hello</title>
+  </head>
+  <body>
+    <h1>Hello</h1>
+    <form th:action="@{/}" th:method="post">
+      <label>Name</label> <input name="name" /> <button>Send</button>
+      <ul th:each="item:${list}" th:object="${item}">
+        <li th:text="*{id} + '：' + *{name}"></li>
+      </ul>
+    </form>
+  </body>
+</html>
