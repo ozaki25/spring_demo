@@ -7,10 +7,27 @@
   <body>
     <h1>Hello</h1>
     <form th:action="@{/}" th:method="post">
-      <label>Name</label> <input name="name" /> <button>Send</button>
-      <ul th:each="item:${list}" th:object="${item}">
-        <li th:text="*{id} + '：' + *{name}"></li>
-      </ul>
+      <div><label>lastame</label> <input name="lastname" /></div>
+      <div><label>firstame</label> <input name="firstname" /></div>
+      <button>Send</button>
     </form>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>lastname</th>
+          <th>firstname</th>
+          <th>fullname</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="item:${list}" th:object="${item}">
+          <td th:text="*id"></td>
+          <td th:text="*lastname"></td>
+          <td th:text="*firstname"></td>
+          <td th:text="*fullname"></td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>
